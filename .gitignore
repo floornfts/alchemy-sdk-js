@@ -15,7 +15,5 @@ temp
 # Alchemy keys and tokens
 alchemy.env
 
-.npmrc
-
 # VSCode History Extension
 .history
