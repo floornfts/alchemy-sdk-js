@@ -187,6 +187,11 @@ export interface GetTokensForOwnerOptions {
    * pagination.
    */
   pageKey?: string;
+
+  /** The maximum number of results to return per page. Defaults to 100 if omitted.
+   * NOTE: This is a Rally forked input parameter
+   */
+  maxCount?: number;
 }
 
 /**
