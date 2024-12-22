@@ -1,8 +1,8 @@
 import { logDebug } from '../util/logger';
 
-export const DEFAULT_BACKOFF_INITIAL_DELAY_MS = 1000;
-export const DEFAULT_BACKOFF_MULTIPLIER = 1.5;
-export const DEFAULT_BACKOFF_MAX_DELAY_MS = 30 * 1000;
+export const DEFAULT_BACKOFF_INITIAL_DELAY_MS = 50;
+export const DEFAULT_BACKOFF_MULTIPLIER = 2;
+export const DEFAULT_BACKOFF_MAX_DELAY_MS = 5 * 1000;
 export const DEFAULT_BACKOFF_MAX_ATTEMPTS = 5;
 
 /**
