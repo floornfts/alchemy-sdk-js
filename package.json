@@ -19,7 +19,7 @@
     "docs": "typedoc --plugin none --out docs src/index.ts",
     "docs-md": "typedoc --plugin typedoc-plugin-markdown --out docs-md src/index.ts",
     "prepare": "husky install",
-    "release": "yarn build && np --branch rally-private-2-x"
+    "release": "yarn build && np --branch rally-private-3-x"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
