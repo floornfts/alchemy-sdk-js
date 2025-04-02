@@ -532,8 +532,15 @@ export class CoreNamespace {
       address,
       options?.contractAddresses ?? TokenBalanceType.ERC20
     ];
+    const optionsParams: any = {};
     if (options?.pageKey) {
-      params.push({ pageKey: options.pageKey });
+      optionsParams.pageKey = options.pageKey;
+    }
+    if (options?.maxCount) {
+      optionsParams.maxCount = options.maxCount;
+    }
+    if (Object.keys(optionsParams).length > 0) {
+      params.push(optionsParams);
     }
     const response = (await provider._send(
       'alchemy_getTokenBalances',

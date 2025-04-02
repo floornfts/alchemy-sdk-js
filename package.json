@@ -1,5 +1,5 @@
 {
-  "name": "alchemy-sdk",
+  "name": "@floornfts/alchemy-sdk",
   "version": "3.5.4",
   "description": "Extended Ethers.js SDK for Alchemy APIs",
   "author": "Alchemy",
@@ -18,7 +18,11 @@
     "test-integration": "jest test/integration --testTimeout=20000",
     "docs": "typedoc --plugin none --out docs src/index.ts",
     "docs-md": "typedoc --plugin typedoc-plugin-markdown --out docs-md src/index.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "yarn build && np --branch rally-private-2-x"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "main": "dist/cjs/index.js",
   "main-es": "dist/es/index.js",
@@ -34,10 +38,7 @@
     "default": "./dist/esm/index.js"
   },
   "types": "./dist/src/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alchemyplatform/alchemy-sdk-js.git"
-  },
+  "repository": "git://github.com/floornfts/alchemy-sdk-js.git",
   "files": [
     "dist"
   ],
