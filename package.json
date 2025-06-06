@@ -70,6 +70,7 @@
     "@ethersproject/web": "^5.7.0",
     "@solana/web3.js": "^1.87.6",
     "axios": "^1.7.4",
+    "hot-shots": "^10.2.1",
     "sturdy-websocket": "^0.2.1",
     "websocket": "^1.0.34"
   },

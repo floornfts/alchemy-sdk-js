@@ -44,7 +44,8 @@ export async function requestHttpWithBackoff<Req, Res>(
         {
           ...overrides,
           timeout: config.requestTimeout
-        }
+        },
+        config.statsD
       );
 
       if (response.status === 200) {

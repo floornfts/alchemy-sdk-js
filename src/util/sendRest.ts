@@ -3,6 +3,7 @@
  * returns the response.
  */
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { StatsD } from 'hot-shots';
 
 import { VERSION } from '../version';
 import { IS_BROWSER } from './util';
@@ -17,7 +18,8 @@ export function sendAxiosRequest<Req, Res>(
   restApiName: string,
   methodName: string,
   params: Req,
-  overrides?: AxiosRequestConfig
+  overrides?: AxiosRequestConfig,
+  statsD?: StatsD
 ): Promise<AxiosResponse<Res>> {
   const requestUrl = baseUrl + '/' + restApiName;
   const config: AxiosRequestConfig = {
@@ -32,5 +34,17 @@ export function sendAxiosRequest<Req, Res>(
     url: requestUrl,
     params
   };
-  return axios(config);
+  return axios(config)
+    .then(response => {
+      if (statsD) {
+        statsD.increment(`alchemy-sdk.${methodName}.success`);
+      }
+      return response;
+    })
+    .catch(error => {
+      if (statsD) {
+        statsD.increment(`alchemy-sdk.${methodName}.error`);
+      }
+      throw error;
+    });
 }
