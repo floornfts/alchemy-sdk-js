@@ -1,3 +1,5 @@
+import { StatsD } from 'hot-shots';
+
 import { ConnectionInfo } from '@ethersproject/web';
 
 import { AlchemySettings, Network } from '../types/types';
@@ -51,6 +53,11 @@ export class AlchemyConfig {
   readonly requestTimeout?: number;
 
   /**
+   * Optional StatsD client to use for tracking metrics.
+   */
+  readonly statsD: StatsD | undefined;
+
+  /**
    * Dynamically imported provider instance.
    *
    * @internal
@@ -75,6 +82,7 @@ export class AlchemyConfig {
     this.batchRequests = config?.batchRequests || false;
     this.requestTimeout = config?.requestTimeout || DEFAULT_REQUEST_TIMEOUT;
     this.connectionInfoOverrides = config?.connectionInfoOverrides;
+    this.statsD = config?.statsD;
   }
 
   /**
