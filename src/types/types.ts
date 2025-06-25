@@ -1,5 +1,3 @@
-import { StatsD } from 'hot-shots';
-
 import {
   BlockTag,
   EventType,
@@ -91,11 +89,6 @@ export interface AlchemySettings {
    * {@link https://docs.ethers.org/v5/api/utils/web/#ConnectionInfo}
    */
   connectionInfoOverrides?: Partial<ConnectionInfo>;
-
-  /**
-   * Optional StatsD client to use for tracking metrics.
-   */
-  statsD?: StatsD;
 }
 
 /**

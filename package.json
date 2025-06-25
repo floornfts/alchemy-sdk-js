@@ -86,7 +86,6 @@
     "eslint": "^8.11.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "hot-shots": "^9.1.0",
     "husky": "^7.0.0",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.7",
